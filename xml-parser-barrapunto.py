@@ -45,11 +45,10 @@ class myContentHandler(ContentHandler):
             elif name == 'link':
                 self.link = " Link: " + self.theContent + "."
                 htmlFichero.write("<a href=" + self.theContent + ">" +
-self.title + "</a><br>\n")
+                                  self.title + "</a><br>\n")
                 print(self.link)
                 self.inContent = False
                 self.theContent = ""
-
 
     def characters(self, chars):
         if self.inContent:
@@ -58,7 +57,7 @@ self.title + "</a><br>\n")
 
 # --- Main prog
 
-if len(sys.argv)<2:
+if len(sys.argv) < 2:
     print("Usage: python xml-parser-barrapunto.py <document>")
     print()
     print(" <document>: file name of the document to parse")
@@ -82,7 +81,7 @@ rssFichero.close()
 
 htmlFichero = open("barrapunto.html", "w")
 htmlFichero.write("<head><meta http-equiv='Content-Type' content='text/html;" +
-	             "charset=utf-8'/></head><br>")
+                  "charset=utf-8'/></head><br>")
 
 xmlFichero = open(sys.argv[1], "r")
 theParser.parse(xmlFichero)
