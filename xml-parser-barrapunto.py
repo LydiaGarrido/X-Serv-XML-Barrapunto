@@ -72,20 +72,16 @@ theParser.setContentHandler(theHandler)
 
 # Ready, set, go!
 
-url = urllib.request.urlopen('http://barrapunto.com/index.rss')
-html = url.read().decode('utf-8')
-
-rssFichero = open("barrapunto.rss", "w")
-rssFichero.write(html)
-rssFichero.close()
-
 htmlFichero = open("barrapunto.html", "w")
-htmlFichero.write("<head><meta http-equiv='Content-Type' content='text/html;" +
-                  "charset=utf-8'/></head><br>")
+htmlFichero.write("<html><head><meta http-equiv='Content-Type'" +
+"content='text/html; charset=utf-8'/></head><body><br>\n")
 
-xmlFichero = open(sys.argv[1], "r")
+argvRss = sys.argv[1]
+xmlFichero = open(argvRss, "r")
 theParser.parse(xmlFichero)
 
+htmlFichero.write("</body></html>")
 htmlFichero.close()
 
-print("Parse complete")
+respuesta = "Parse Complete"
+print(respuesta)
