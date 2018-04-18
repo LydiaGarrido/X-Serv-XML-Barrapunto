@@ -74,7 +74,7 @@ theParser.setContentHandler(theHandler)
 
 htmlFichero = open("barrapunto.html", "w")
 htmlFichero.write("<html><head><meta http-equiv='Content-Type'" +
-"content='text/html; charset=utf-8'/></head><body><br>\n")
+                  "content='text/html; charset=utf-8'/></head><body><br>\n")
 
 argvRss = sys.argv[1]
 xmlFichero = open(argvRss, "r")
